@@ -1,0 +1,97 @@
+{
+  "name": "n8n-nodes-pyth",
+  "version": "1.0.0",
+  "description": "n8n community node for Pyth Network oracle protocol - real-time price feeds, on-chain updates, historical data, and DeFi integrations",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "pyth",
+    "pyth-network",
+    "oracle",
+    "price-feed",
+    "defi",
+    "blockchain",
+    "cryptocurrency",
+    "ethereum",
+    "solana",
+    "cross-chain",
+    "hermes",
+    "wormhole"
+  ],
+  "license": "BUSL-1.1",
+  "homepage": "https://velobpa.com",
+  "author": {
+    "name": "Velocity BPA",
+    "email": "licensing@velobpa.com",
+    "url": "https://velobpa.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-pyth.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier --write \"**/*.ts\"",
+    "lint": "eslint \"nodes/**/*.ts\" \"credentials/**/*.ts\"",
+    "lint:fix": "eslint \"nodes/**/*.ts\" \"credentials/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "COMMERCIAL_LICENSE.md",
+    "LICENSING_FAQ.md"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/PythNetworkCredentials.credentials.js",
+      "dist/credentials/PythApiCredentials.credentials.js",
+      "dist/credentials/PythPublisherCredentials.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Pyth/Pyth.node.js",
+      "dist/nodes/Pyth/PythTrigger.node.js"
+    ]
+  },
+  "dependencies": {
+    "@pythnetwork/hermes-client": "^1.3.0",
+    "@pythnetwork/price-service-client": "^1.9.0",
+    "@pythnetwork/pyth-evm-js": "^1.69.0",
+    "@solana/web3.js": "^1.95.0",
+    "axios": "^1.7.0",
+    "ethers": "^6.13.0",
+    "eventsource": "^2.0.2",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/eventsource": "^1.1.15",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.0",
+    "@types/ws": "^8.5.10",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.0",
+    "gulp": "^4.0.2",
+    "jest": "^29.7.0",
+    "n8n-workflow": "^1.35.0",
+    "prettier": "^3.2.0",
+    "rimraf": "^5.0.5",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": ">=1.0.0"
+  }
+}

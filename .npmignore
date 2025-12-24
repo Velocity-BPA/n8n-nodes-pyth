@@ -1,0 +1,26 @@
+# Source files
+*.ts
+!*.d.ts
+tsconfig.json
+
+# Tests
+test/
+jest.config.js
+coverage/
+
+# Development
+.eslintrc.js
+.prettierrc
+.gitignore
+.git/
+
+# IDE
+.vscode/
+.idea/
+
+# Docs (keep README)
+*.md
+!README.md
+!LICENSE
+!COMMERCIAL_LICENSE.md
+!LICENSING_FAQ.md
